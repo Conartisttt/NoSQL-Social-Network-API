@@ -93,6 +93,7 @@ module.exports = {
             if (!thought) {
                 return res.status(400).json({ message: 'No thought found with that ID' });
             }
+            res.json(thought);
 
         } catch (err) {
             res.status(500).json(err)
@@ -110,11 +111,10 @@ module.exports = {
             if (!thought) {
                 return res.status(400).json({ message: 'No thought found with that ID' })
             }
+            res.json(thought);
 
         } catch (err) {
             res.status(500).json(err)
         }
     },
-
-
 }
