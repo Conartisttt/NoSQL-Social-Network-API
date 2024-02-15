@@ -18,9 +18,7 @@ const reactionSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: function() {
-        return this.createdAt.toLocaleDateString();
-      }
+      get: reformatDate
     },
   },
   {
@@ -30,5 +28,9 @@ const reactionSchema = new Schema(
     id: false,
   }
 );
+
+function reformatDate(createdAt) {
+  return createdAt.toLocaleDateString();
+};
 
 module.exports = reactionSchema;
