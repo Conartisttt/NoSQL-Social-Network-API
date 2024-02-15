@@ -68,22 +68,37 @@ module.exports = {
             res.status(500).json(err)
         }
     },
-    //TODO:
-    //add friend
-    // async addFriend(req, res) {
-    //     try {
+    // add friend
+    async addFriend(req, res) {
+        try {
+            const user = await User.findOneAndUpdate(
+                { _id: req.params.userId },
+                { $addToSet: { friends: req.body } },
+                { runValidators: true, new: true }
+            )
+            if (!user) {
+                return res.status(400).json({ message: 'No user found with that ID' });
+            }
 
-    //     } catch (err) {
-    //         res.status(500).json(err)
-    //     }
-    // },
-    // TODO:
-    //delete friend
-    // async deleteFriend(req, res) {
-    //     try {
+        } catch (err) {
+            res.status(500).json(err)
+        }
+    },
+    // delete friend
+    async deleteFriend(req, res) {
+        try {
+            const user = await User.findOneAndUpdate(
+                { _id: req.params.userId },
+                { $pull: { friends: { _id: req.params.friendId } } },
+                { runValidators: true, new: true }
+            );
 
-    //     } catch (err) {
-    //         res.status(500).json(err)
-    //     }
-    // },
+            if (!user) {
+                return res.status(400).json({ message: 'No user found with that ID' })
+            }
+
+        } catch (err) {
+            res.status(500).json(err)
+        }
+    },
 };
