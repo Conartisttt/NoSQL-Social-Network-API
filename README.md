@@ -14,7 +14,7 @@
 
 This application is meant to be the back end for a social network web application where users can share their thoughts, react to friends' thoughts, and create a friend list.
 
-You can a walkthrough for this application [here](INSERT LINK TO GOOGLE DRIVE OR MAKE PLAY IN README)
+You can a walkthrough for this application [here](https://drive.google.com/file/d/1Idmrbq83UIlsUOvAxT_Nnk_Gt-ZgV1qJ/view)
 
 ## Technologies Used
 
