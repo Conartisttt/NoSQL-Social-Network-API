@@ -10,10 +10,17 @@ const {
     deleteFriend
 } = require('../../controllers/userController.js')
 
-router.route('/').get(getUsers).post(createUser);
+router.route('/')
+    .get(getUsers)
+    .post(createUser);
 
-router.route('/:userId').get(getSingleUser).put(updateUser).delete(deleteUser);
+router.route('/:userId')
+    .get(getSingleUser)
+    .put(updateUser)
+    .delete(deleteUser);
 
-router.route('/:userId/friends/:friendId').delete(deleteFriend).post(addFriend)
+router.route('/:userId/friends/:friendId')
+    .delete(deleteFriend)
+    .post(addFriend)
 
 module.exports = router;
