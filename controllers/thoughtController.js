@@ -37,8 +37,8 @@ module.exports = {
                 { new: true },
             )
 
-            if(!user) {
-                return res.status(400).json({message:'No user found with that username'})
+            if (!user) {
+                return res.status(400).json({ message: 'No user found with that username' })
             }
             res.json(thought);
         } catch (err) {
@@ -66,7 +66,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    //update Thought
+    //update thought
     async updateThought(req, res) {
         try {
             const thought = await Thought.findOneAndUpdate(
